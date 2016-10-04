@@ -1,0 +1,26 @@
+{
+    "name": "mumps",
+    "displayName": "M/MUMPS/Caché language syntax highlighting",
+    "description": "M/MUMPS/Caché language syntax highlighting for Visual Studio Code. Converted from the MUMPS TextMate Bundle.",
+    "version": "0.0.1",
+    "publisher": "dgileadi",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "mumps",
+            "aliases": ["MUMPS", "mumps"],
+            "extensions": [".int",".m",".zwr"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "mumps",
+            "scopeName": "source.mumps",
+            "path": "./syntaxes/mumps.tmLanguage"
+        }]
+    }
+}
