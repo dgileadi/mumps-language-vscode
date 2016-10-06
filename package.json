@@ -4,6 +4,11 @@
     "description": "M/MUMPS/Caché language syntax highlighting for Visual Studio Code. Converted from the MUMPS TextMate Bundle.",
     "version": "0.0.1",
     "publisher": "dgileadi",
+    "icon": "icon.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dgileadi/mumps-language-vscode.git"
+    },
     "engines": {
         "vscode": "^1.5.0"
     },
