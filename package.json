@@ -2,7 +2,7 @@
     "name": "mumps",
     "displayName": "M/MUMPS/Caché language syntax highlighting",
     "description": "M/MUMPS/Caché language syntax highlighting for Visual Studio Code. Converted from the MUMPS TextMate Bundle.",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "publisher": "dgileadi",
     "icon": "icon.png",
     "repository": {
