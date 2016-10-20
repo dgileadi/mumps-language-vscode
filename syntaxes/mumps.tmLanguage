@@ -6,6 +6,7 @@
 	<array>
 		<string>int</string>
 		<string>m</string>
+		<string>mps</string>
 		<string>zwr</string>
 	</array>
 	<key>name</key>

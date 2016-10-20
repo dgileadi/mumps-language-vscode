@@ -19,7 +19,7 @@
         "languages": [{
             "id": "mumps",
             "aliases": ["MUMPS", "mumps"],
-            "extensions": [".int",".m",".zwr"],
+            "extensions": [".int",".m",".mps",".zwr"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
