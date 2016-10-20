@@ -144,10 +144,10 @@ function formatFunctionSignature(definition) {
 function formatParameter(parameter, first) {
     let s = (first ? '' : ',');
     s += parameter.name;
-    if (parameter.optional) {
-        s += '?';
-    }
     s += ':' + parameter.type;
+    if (parameter.optional) {
+        s = '[' + s + ']';
+    }
     return s;
 }
 
