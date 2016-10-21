@@ -12,30 +12,39 @@ class MumpsSignatureHelpProvider {
             return;
         }
 
-        let definition;
-        let index = position.character;
-        while (!definition && index > 0) {
-            index = line.text.lastIndexOf('(', index) - 1;
-            if (index < 0) {
-                break;
-            }
-            let token = new MumpsToken(document, new Position(position.line, index));
-            definition = token.definition;
-        }
-        if (!definition) {
+        let token = getFunctionToken(document, line, position);
+        if (!token || !token.definition) {
             return;
         }
 
-        let signature = createSignatureInformation(definition);
+        let signature = createSignatureInformation(token.definition);
 
         let help = new SignatureHelp();
         help.signatures = [signature];
         help.activeSignature = 0;
-        help.activeParameter = calculateActiveParameter(line.text, index + 1, position.character);
+        help.activeParameter = calculateActiveParameter(line.text, token.position.character + 1, position.character);
         return help;
     }
 }
 exports.MumpsSignatureHelpProvider = MumpsSignatureHelpProvider;
+
+function getFunctionToken(document, line, position) {
+    let depth = 1;
+    let index;
+    for (index = position.character - 1; index > 0 && depth > 0; index--) {
+        let char = line.text.charAt(index);
+        if (char === ')') {
+            depth++;
+        } else if (char === '(') {
+            depth--;
+        }
+    }
+    if (depth > 0 || index <= 0) {
+        return;
+    }
+
+    return new MumpsToken(document, new Position(position.line, index));
+}
 
 function createSignatureInformation(definition) {
     let signature = new SignatureInformation(definition.functionSignature, definition.description);
@@ -57,7 +66,7 @@ function calculateActiveParameter(lineText, parametersStartIndex, insertIndex) {
         let char = lineText.charAt(i);
         if (char === '(') {
             depth++;
-        } else if (char === '(') {
+        } else if (char === ')') {
             depth--;
         } else if (char === ',' && depth === 0) {
             active++;
