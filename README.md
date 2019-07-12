@@ -1,5 +1,7 @@
 # M/MUMPS/Caché language syntax for [Visual Studio Code](https://code.visualstudio.com)
 
+**This extension is not maintained. Please see [David Silin's extension](https://marketplace.visualstudio.com/items?itemName=dsilin.mumps) which has many more features.**
+
 This is a simple [conversion](https://code.visualstudio.com/docs/customization/colorizer#_adding-a-new-language) of the [M/MUMPS/Caché language syntax for TextMate](https://github.com/ksherlock/MUMPS.tmbundle).
 
 ## Simple language hints
